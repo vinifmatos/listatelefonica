@@ -1,0 +1,47 @@
+<%= form_with(model: contato, local: true) do |form| %>
+  <% if contato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contato.errors.count, "error") %> prohibited this contato from being saved:</h2>
+
+      <ul>
+      <% contato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :departamento_id %>
+    <%= form.text_field :departamento_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone{10} %>
+    <%= form.text_field :telefone{10} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :celular{11} %>
+    <%= form.text_field :celular{11} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cargo %>
+    <%= form.text_field :cargo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ativo %>
+    <%= form.check_box :ativo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

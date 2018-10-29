@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departamento: one
+  nome: MyString
+  telefone{10}: MyString
+  celular{11}: MyString
+  cargo: MyString
+  ativo: false
+
+two:
+  departamento: two
+  nome: MyString
+  telefone{10}: MyString
+  celular{11}: MyString
+  cargo: MyString
+  ativo: false

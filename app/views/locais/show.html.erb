@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @local.nome %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @local.telefone %>
+</p>
+
+<%= link_to 'Edit', edit_local_path(@local) %> |
+<%= link_to 'Back', locais_path %>
