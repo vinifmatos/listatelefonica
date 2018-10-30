@@ -4,7 +4,7 @@ class LocaisController < ApplicationController
   # GET /locais
   # GET /locais.json
   def index
-    @locais = Local.all
+    @locais = Local.all.page(params[:page])
   end
 
   # GET /locais/1
@@ -62,13 +62,13 @@ class LocaisController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_local
-      @local = Local.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_local
+    @local = Local.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def local_params
-      params.require(:local).permit(:nome, :telefone)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def local_params
+    params.require(:local).permit(:nome, :telefone)
+  end
 end

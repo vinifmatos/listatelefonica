@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get '/home', to: 'home#index', as: 'home'
   devise_for :usuarios, controllers: { sessions: 'usuario/sessions' }
-  resources :usuarios
+  resources :usuarios, except: :show
   resources :contatos
   resources :departamentos
   resources :locais

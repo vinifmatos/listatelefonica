@@ -1,34 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Departamentos</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-auto">
+      <h1>Departamentos</h1>
+    </div>
+    <% if cadastra? %>
+      <div class="col-auto ml-auto">
+        <%= link_to 'Novo Departamento', new_departamento_path, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Local</th>
       <th>Nome</th>
-      <th>Ações</th>
+      <th>Local</th>
+      <th style="text-align: center">Ações</th>
     </tr>
   </thead>
-
   <tbody>
     <% @departamentos.each do |departamento| %>
       <tr>
-        <td><%= departamento.local.nome %></td>
         <td><%= departamento.nome %></td>
-        <td>
-          <%= link_to 'Show', departamento %>
-          <%= link_to 'Edit', edit_departamento_path(departamento) %>
-          <%= link_to 'Destroy', departamento, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td><%= departamento.local.nome %></td>
+        <td style="text-align: center">
+          <%= link_to fa_icon('list'), departamento, class: 'btn btn-primary btn-sm' %>
+          <% if cadastra? %>
+            <%= link_to fa_icon('pencil'), edit_departamento_path(departamento), class: 'btn btn-primary btn-sm' %>
+            <%= link_to fa_icon('trash'), departamento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Departamento', new_departamento_path %>
 
 <div class="pagination justify-content-center">
   <%= paginate @departamentos, theme: 'twitter-bootstrap-4' %>

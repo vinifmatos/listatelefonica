@@ -3,6 +3,8 @@ class Contato < ApplicationRecord
   validates :nome, presence: true
   validate :numero_informado
 
+  scope :ativos, -> { where(ativo: true) }
+
   private
 
   def numero_informado

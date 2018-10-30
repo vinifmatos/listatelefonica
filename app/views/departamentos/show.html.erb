@@ -1,14 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Local:</strong>
-  <%= @departamento.local %>
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <h1>Local</h1>
+        </div>
+        <div class="col-auto ml-auto">
+          <%= link_to 'Editar', edit_departamento_path(@departamento) , class: 'btn btn-primary' %>
+          <%= link_to 'Voltar', departamentos_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="form-row">
+        <div class="form-group col-auto">
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome, @departamento.nome, class: 'form-control', readonly: true %>
+        </div>
+      </div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @departamento.nome %>
-</p>
-
-<%= link_to 'Edit', edit_departamento_path(@departamento) %> |
-<%= link_to 'Back', departamentos_path %>
+      <div class="form-row">
+        <div class="form-group col-auto">
+          <%= label_tag :local %>
+          <%= text_field_tag :local, @departamento.local.nome, class: 'form-control', readonly: true %>
+        </div>
+    </div>
+  </div>
+</div>

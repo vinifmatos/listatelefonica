@@ -11,17 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :local_id %>
-    <%= form.text_field :local_id %>
+  <div class="form-row">
+    <div class="form-group col-auto">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="form-row">
+    <div class="form-group col-auto">
+      <%= form.label :local %>
+      <%= form.select :local_id, locais.collect { |l| [ l.nome, l.id ] }, { prompt: 'Selecione' }, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Salvar', class: 'btn btn-success' %>
+    <%= link_to 'Voltar', :back, class: 'btn btn-primary' %>
   </div>
 <% end %>

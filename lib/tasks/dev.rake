@@ -22,7 +22,7 @@ namespace :dev do
   end
 
   desc "TODO"
-  task rkmdb: :environment do
+  task rmkdb: :environment do
     ['db:drop', 'db:create', 'db:migrate', 'db:seed', 'dev:popdb'].each do |t|
       Rake::Task[t].invoke
     end

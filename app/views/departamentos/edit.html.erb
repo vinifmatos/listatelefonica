@@ -1,6 +1,10 @@
-<h1>Editing Departamento</h1>
-
-<%= render 'form', departamento: @departamento %>
-
-<%= link_to 'Show', @departamento %> |
-<%= link_to 'Back', departamentos_path %>
+<div class="container main-container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Editar Departamento</h1>
+    </div>
+    <div class="card-body">
+      <%= render 'form', departamento: @departamento, locais: @locais %>
+    </div>
+  </div>
+</div>

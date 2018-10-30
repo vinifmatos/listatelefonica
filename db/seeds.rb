@@ -8,6 +8,7 @@
 
 puts "Criando usuario admin"
 Usuario.create(
+  id: 0,
   login: 'admin',
   password: 'admin',
   password_confirmation: 'admin',
