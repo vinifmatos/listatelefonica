@@ -86,3 +86,12 @@ gem 'font-awesome-rails'
 
 # notificacoes
 gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+
+# paginacao
+gem 'kaminari'
+
+# tema bootstrap 4 kaminari
+gem 'bootstrap4-kaminari-views'
+
+# traducao kaminari
+gem 'kaminari-i18n'

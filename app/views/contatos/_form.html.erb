@@ -11,37 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :departamento_id %>
-    <%= form.text_field :departamento_id %>
+  <div class="form-row align-items-center">
+    <div class="form-group col-auto">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: 'form-control' %>
+    </div>
+
+    <div class="form-check col-auto">
+      <div class="custom-control custom-checkbox">
+        <%= form.check_box :ativo, class: 'custom-control-input' %>
+        <%= form.label :ativo, class: 'custom-control-label' %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="form-row">
+    <div class="form-group col-auto">
+      <%= form.label :telefone %>
+      <%= form.text_field :telefone, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-auto">
+      <%= form.label :celular %>
+      <%= form.text_field :celular, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :telefone{10} %>
-    <%= form.text_field :telefone{10} %>
+  <div class="form-row">
+    <div class="form-group col-auto">
+      <%= form.label :departamento %>
+      <%= form.select :departamento_id, departamentos.collect { |d| [ d.nome, d.id ] }, { prompt: 'Selecione' }, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :celular{11} %>
-    <%= form.text_field :celular{11} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cargo %>
-    <%= form.text_field :cargo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ativo %>
-    <%= form.check_box :ativo %>
+  <div class="form-row">
+    <div class="form-group col-auto">
+      <%= form.label :cargo %>
+      <%= form.text_field :cargo, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Salvar', class: 'btn btn-success' %>
+    <%= link_to 'Voltar', :back, class: 'btn btn-primary' %>
   </div>
 <% end %>

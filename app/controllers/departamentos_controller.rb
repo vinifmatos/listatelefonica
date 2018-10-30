@@ -1,10 +1,11 @@
 class DepartamentosController < ApplicationController
   before_action :set_departamento, only: [:show, :edit, :update, :destroy]
+  before_action :set_locais, only: [:new, :edit, :update, :create]
 
   # GET /departamentos
   # GET /departamentos.json
   def index
-    @departamentos = Departamento.all
+    @departamentos = Departamento.all.includes(:local).page(params[:page])
   end
 
   # GET /departamentos/1
@@ -62,13 +63,18 @@ class DepartamentosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_departamento
-      @departamento = Departamento.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def departamento_params
-      params.require(:departamento).permit(:local_id, :nome)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_departamento
+    @departamento = Departamento.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def departamento_params
+    params.require(:departamento).permit(:local_id, :nome)
+  end
+
+  def set_locais
+    @locais = Local.all.select(:id, :nome)
+  end
 end

@@ -3,10 +3,10 @@ class CreateEnderecos < ActiveRecord::Migration[5.2]
     create_table :enderecos do |t|
       t.references :local, foreign_key: true
       t.string :cep, limit: 8
-      t.string :rua
+      t.string :rua, null: false
       t.string :numero
-      t.string :bairro
-      t.string :cidade
+      t.string :bairro, null: false
+      t.string :cidade, null: false
 
       t.timestamps
     end

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :usuarios
   root 'home#index'
+  devise_for :usuarios, controllers: { sessions: 'usuario/sessions' }
+  resources :usuarios
   resources :contatos
   resources :departamentos
   resources :locais

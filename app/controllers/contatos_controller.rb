@@ -1,10 +1,11 @@
 class ContatosController < ApplicationController
   before_action :set_contato, only: [:show, :edit, :update, :destroy]
+  before_action :set_departamento, only: [:new, :edit, :create, :update]
 
   # GET /contatos
   # GET /contatos.json
   def index
-    @contatos = Contato.all
+    @contatos = Contato.all.includes(:departamento).page(params[:page])
   end
 
   # GET /contatos/1
@@ -62,13 +63,18 @@ class ContatosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contato
-      @contato = Contato.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def contato_params
-      params.require(:contato).permit(:departamento_id, :nome, :telefone{10}, :celular{11}, :cargo, :ativo)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_contato
+    @contato = Contato.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def contato_params
+    params.require(:contato).permit(:departamento_id, :nome, :telefone, :celular, :cargo, :ativo)
+  end
+
+  def set_departamento
+    @departamentos = Departamento.all.select :id, :nome
+  end
 end

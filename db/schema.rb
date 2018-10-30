@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2018_10_29_192841) do
 
   create_table "contatos", force: :cascade do |t|
     t.bigint "departamento_id"
-    t.string "nome"
+    t.string "nome", null: false
     t.string "telefone", limit: 10
     t.string "celular", limit: 11
     t.string "cargo"
-    t.boolean "ativo"
+    t.boolean "ativo", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["departamento_id"], name: "index_contatos_on_departamento_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_192841) do
 
   create_table "departamentos", force: :cascade do |t|
     t.bigint "local_id"
-    t.string "nome"
+    t.string "nome", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["local_id"], name: "index_departamentos_on_local_id"
@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 2018_10_29_192841) do
   create_table "enderecos", force: :cascade do |t|
     t.bigint "local_id"
     t.string "cep", limit: 8
-    t.string "rua"
+    t.string "rua", null: false
     t.string "numero"
-    t.string "bairro"
-    t.string "cidade"
+    t.string "bairro", null: false
+    t.string "cidade", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["local_id"], name: "index_enderecos_on_local_id"
   end
 
   create_table "locais", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", null: false
     t.string "telefone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

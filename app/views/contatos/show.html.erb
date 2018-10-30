@@ -1,34 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Departamento:</strong>
-  <%= @contato.departamento %>
-</p>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <h1>Contato</h1>
+        </div>
+        <div class="col-auto ml-auto">
+          <%= link_to 'Editar', edit_contato_path(@contato), class: 'btn btn-primary' %>
+          <%= link_to 'Voltar', contatos_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="form-row align-items-center">
+        <div class="form-group col-auto">
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome, @contato.nome, class: 'form-control', readonly: true %>
+        </div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @contato.nome %>
-</p>
+        <div class="form-check col-auto">
+          <div class="custom-control custom-checkbox">
+            <%= check_box_tag :ativo, nil, @contato.ativo, class: 'custom-control-input', disabled: true %>
+            <%= label_tag :ativo, 'Ativo', class: 'custom-control-label' %>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>Telefone{10}:</strong>
-  <%= @contato.telefone{10} %>
-</p>
+      <div class="form-row">
+        <div class="form-group col-auto">
+          <%= label_tag :telefone %>
+          <%= text_field_tag :telefone, @contato.telefone, class: 'form-control', readonly: true %>
+        </div>
 
-<p>
-  <strong>Celular{11}:</strong>
-  <%= @contato.celular{11} %>
-</p>
+        <div class="form-group col-auto">
+          <%= label_tag :celular %>
+          <%= text_field_tag :celular, @contato.celular, class: 'form-control', readonly: true %>
+        </div>
+      </div>
 
-<p>
-  <strong>Cargo:</strong>
-  <%= @contato.cargo %>
-</p>
+      <div class="form-row">
+        <div class="form-group col-auto">
+          <%= label_tag :departamento %>
+          <%= text_field_tag :nome, @contato.departamento.nome, class: 'form-control', readonly: true %>
+        </div>
+      </div>
 
-<p>
-  <strong>Ativo:</strong>
-  <%= @contato.ativo %>
-</p>
-
-<%= link_to 'Edit', edit_contato_path(@contato) %> |
-<%= link_to 'Back', contatos_path %>
+      <div class="form-row">
+        <div class="form-group col-auto">
+          <%= label_tag :cargo %>
+          <%= text_field_tag :cargo, @contato.cargo, class: 'form-control', readonly: true %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
