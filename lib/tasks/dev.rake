@@ -3,13 +3,13 @@ namespace :dev do
   task popdb: :environment do
     puts 'Criando locais...'
     20.times do |l|
-      Local.create nome: "local #{l+1}"
+      Local.create nome: "local #{(l+1)}"
     end
 
     puts 'Criando depatamentos...'
     Local.all.each do |l|
       20.times do |d|
-        l.departamentos.create nome: "Departamento #{d+1}"
+        l.departamentos.create nome: "Departamento #{(l+1).chr.upper}#{(d+1).chr.upper}"
       end
     end
 
