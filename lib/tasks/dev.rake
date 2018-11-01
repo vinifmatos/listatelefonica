@@ -1,6 +1,22 @@
 namespace :dev do
   desc "TODO"
   task popdb: :environment do
+    puts 'Craindo usuario cadastro...'
+    Usuario.create(
+      login: 'cadastro',
+      password: '12345',
+      password_confirmation: '12345',
+      acesso: :cadastro
+    )
+
+    puts 'Craindo usuario consulta...'
+    Usuario.create(
+      login: 'consulta',
+      password: '12345',
+      password_confirmation: '12345',
+      acesso: :consulta
+    )
+
     puts 'Criando locais...'
     5.times do
       Local.create(
@@ -25,8 +41,10 @@ namespace :dev do
       20.times do
         d.contatos.create(
           nome: Faker::Name.name,
-          telefone: Faker::PhoneNumber.phone_number.tr('(', '').tr(')', '').tr(' ', '').tr('-', ''),
-          celular: Faker::PhoneNumber.cell_phone.tr('(', '').tr(')', '').tr(' ', '').tr('-', ''),
+          telefone: Faker::PhoneNumber.phone_number.tr('(', '').tr(')', '')
+          .tr(' ', '').tr('-', ''),
+          celular: Faker::PhoneNumber.cell_phone.tr('(', '').tr(')', '')
+          .tr(' ', '').tr('-', ''),
           cargo: Faker::Company.profession
         )
       end

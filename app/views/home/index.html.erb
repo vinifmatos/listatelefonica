@@ -18,6 +18,7 @@
         <th>Celular</th>
         <th>Cargo</th>
         <th>Departamento</th>
+        <th>Local</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
           <td><%= formata_celular contato.celular %></td>
           <td><%= contato.cargo %></td>
           <td><%= contato.departamento.nome %></td>
+          <td><%= contato.departamento.local.nome %></td>
         </tr>
       <% end %>
     </tbody>

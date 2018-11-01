@@ -12,7 +12,7 @@ class Contato < ApplicationRecord
   end
 
   def self.busca(params)
-    Contato.joins('left join departamentos on departamentos.id = contatos.departamento_id').where(
+    Contato.joins('left join departamentos on departamentos.id = contatos.departamento_id').includes(departamento: [:local]).where(
       "contatos.ativo = true
         and (( ('' = :numero or contatos.celular like :numero) or ('' = :numero or contatos.telefone like :numero) )
         and ('' = :contato or contatos.nome ilike :contato)
