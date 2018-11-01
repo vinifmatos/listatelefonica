@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
   helper_method :admin?, :cadastra?
 
   def admin?
+    return false unless usuario_signed_in?
+
     current_usuario.admin? || current_usuario.id.zero?
   end
 
   def cadastra?
+    return false unless usuario_signed_in?
+
     current_usuario.cadastro? || admin?
   end
 

@@ -7,9 +7,9 @@
         <div class="col-auto">
           <h1>Local</h1>
         </div>
-        <div class="col-auto ml-auto">
-          <%= link_to 'Editar', edit_local_path(@local), class: 'btn btn-primary' %>
-          <%= link_to 'Voltar', locais_path, class: 'btn btn-primary' %>
+        <div class="col-auto row ml-auto">
+          <%= button_to 'Editar', edit_local_path(@local), method: :get, class: 'btn btn-primary col-auto mr-2', disabled: !cadastra? %>
+          <%= button_to 'Voltar', locais_path, method: :get, class: 'btn btn-primary mr-3 col-auto' %>
         </div>
       </div>
     </div>

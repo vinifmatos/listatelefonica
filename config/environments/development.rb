@@ -71,4 +71,7 @@ Rails.application.configure do
   # web-console config
   config.web_console.whitelisted_ips = '192.168.255.224/19'
   config.web_console.whitelisted_ips = ['192.168.255.224/19', ENV["SSH_CLIENT"].match(/\A([^\s]*)/)[1]] if ENV["SSH_CLIENT"].match(/\A([^\s]*)/)[1]
+
+  # config local Faker gem
+  Faker::Config.locale = 'pt-BR'
 end

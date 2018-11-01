@@ -2,22 +2,23 @@ namespace :dev do
   desc "TODO"
   task popdb: :environment do
     puts 'Criando locais...'
-    20.times do |l|
-      Local.create nome: "local #{(l+1)}"
-    end
+    5.times { Local.create nome: Faker::Company.name }
 
     puts 'Criando depatamentos...'
     Local.all.each do |l|
-      20.times do |d|
-        l.departamentos.create nome: "Departamento #{(l+1).chr.upper}#{(d+1).chr.upper}"
-      end
+      5.times { l.departamentos.create nome: Faker::Commerce.department }
     end
 
     puts 'Criando contatos...'
     Departamento.all.each do |d|
-      20.times do |c|
-        d.contatos.create nome: "Contato #{c+1}", telefone: "12345678"
-      end
+      20.times {
+        d.contatos.create(
+          nome: Faker::Name.name,
+          telefone: Faker::PhoneNumber.phone_number.tr('(', '').tr(')', '').tr(' ', '').tr('-', ''),
+          celular: Faker::PhoneNumber.cell_phone.tr('(', '').tr(')', '').tr(' ', '').tr('-', ''),
+          cargo: Faker::Company.profession
+        )
+      }
     end
   end
 

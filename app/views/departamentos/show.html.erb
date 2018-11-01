@@ -5,11 +5,11 @@
     <div class="card-header">
       <div class="row align-items-center">
         <div class="col-auto">
-          <h1>Local</h1>
+          <h1>Departamento</h1>
         </div>
-        <div class="col-auto ml-auto">
-          <%= link_to 'Editar', edit_departamento_path(@departamento) , class: 'btn btn-primary' %>
-          <%= link_to 'Voltar', departamentos_path, class: 'btn btn-primary' %>
+        <div class="col-auto row ml-auto">
+          <%= button_to 'Editar', edit_departamento_path(@departamento), method: :get, class: 'btn btn-primary col-auto mr-2', disabled: !cadastra? %>
+          <%= button_to 'Voltar', departamentos_path, method: :get, class: 'btn btn-primary col-auto mr-3' %>
         </div>
       </div>
     </div>
