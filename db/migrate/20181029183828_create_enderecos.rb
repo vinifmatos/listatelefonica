@@ -5,6 +5,7 @@ class CreateEnderecos < ActiveRecord::Migration[5.2]
       t.string :cep, limit: 8
       t.string :rua, null: false
       t.string :numero
+      t.string :complemento
       t.string :bairro, null: false
       t.string :cidade, null: false
 

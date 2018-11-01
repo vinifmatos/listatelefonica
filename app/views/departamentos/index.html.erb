@@ -13,30 +13,32 @@
   </div>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Local</th>
-      <th style="text-align: center">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @departamentos.each do |departamento| %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= departamento.nome %></td>
-        <td><%= departamento.local.nome %></td>
-        <td style="text-align: center">
-          <%= link_to fa_icon('list'), departamento, class: 'btn btn-primary btn-sm' %>
-          <% if cadastra? %>
-            <%= link_to fa_icon('pencil'), edit_departamento_path(departamento), class: 'btn btn-primary btn-sm' %>
-            <%= link_to fa_icon('trash'), departamento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-        </td>
+        <th>Nome</th>
+        <th>Local</th>
+        <th style="text-align: center">Ações</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @departamentos.each do |departamento| %>
+        <tr>
+          <td><%= departamento.nome %></td>
+          <td><%= departamento.local.nome %></td>
+          <td style="text-align: center">
+            <%= link_to fa_icon('list'), departamento, class: 'btn btn-primary btn-sm' %>
+            <% if cadastra? %>
+              <%= link_to fa_icon('pencil'), edit_departamento_path(departamento), class: 'btn btn-primary btn-sm' %>
+              <%= link_to fa_icon('trash'), departamento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div class="pagination justify-content-center">
   <%= paginate @departamentos, theme: 'twitter-bootstrap-4' %>

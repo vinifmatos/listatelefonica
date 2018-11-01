@@ -9,28 +9,30 @@
   <% end %>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Telefone</th>
-      <th>Celular</th>
-      <th>Cargo</th>
-      <th>Departamento</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @contatos.each do |contato| %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= contato.nome %></td>
-        <td><%= formata_telefone contato.telefone %></td>
-        <td><%= formata_celular contato.celular %></td>
-        <td><%= contato.cargo %></td>
-        <td><%= contato.departamento.nome %></td>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Celular</th>
+        <th>Cargo</th>
+        <th>Departamento</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @contatos.each do |contato| %>
+        <tr>
+          <td><%= contato.nome %></td>
+          <td><%= formata_telefone contato.telefone %></td>
+          <td><%= formata_celular contato.celular %></td>
+          <td><%= contato.cargo %></td>
+          <td><%= contato.departamento.nome %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div class="pagination justify-content-center">
   <%= paginate @contatos, theme: 'twitter-bootstrap-4' %>

@@ -11,31 +11,33 @@
   </div>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Login</th>
-      <th>Email</th>
-      <th>Acesso</th>
-      <th style="text-align: center">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @usuarios.each do |usuario| %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= usuario.login %></td>
-        <td><%= usuario.email %></td>
-        <td><%= usuario.acesso %></td>
-        <td style="text-align: center">
-          <%= link_to fa_icon('pencil'), edit_usuario_path(usuario), class: 'btn btn-primary btn-sm' %>
-          <% unless usuario_admin?(usuario) %>
-            <%= link_to fa_icon('trash'), usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-        </td>
+        <th>Login</th>
+        <th>Email</th>
+        <th>Acesso</th>
+        <th style="text-align: center">Ações</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @usuarios.each do |usuario| %>
+        <tr>
+          <td><%= usuario.login %></td>
+          <td><%= usuario.email %></td>
+          <td><%= usuario.acesso %></td>
+          <td style="text-align: center">
+            <%= link_to fa_icon('pencil'), edit_usuario_path(usuario), class: 'btn btn-primary btn-sm' %>
+            <% unless usuario_admin?(usuario) %>
+              <%= link_to fa_icon('trash'), usuario, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div class="pagination justify-content-center">
   <%= paginate @usuarios, theme: 'twitter-bootstrap-4' %>

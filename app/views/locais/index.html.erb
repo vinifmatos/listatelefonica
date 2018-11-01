@@ -13,30 +13,32 @@
   </div>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Telefone</th>
-      <th style="text-align: center">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @locais.each do |local| %>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= local.nome %></td>
-        <td><%= local.telefone %></td>
-        <td style="text-align: center">
-          <%= link_to fa_icon('list'), local, class: 'btn btn-primary btn-sm' %>
-          <% if cadastra? %>
-            <%= link_to fa_icon('pencil'), edit_local_path(local), class: 'btn btn-primary btn-sm' %>
-            <%= link_to fa_icon('trash'), local, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-        </td>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th style="text-align: center">Ações</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @locais.each do |local| %>
+        <tr>
+          <td><%= local.nome %></td>
+          <td><%= local.telefone %></td>
+          <td style="text-align: center">
+            <%= link_to fa_icon('list'), local, class: 'btn btn-primary btn-sm' %>
+            <% if cadastra? %>
+              <%= link_to fa_icon('pencil'), edit_local_path(local), class: 'btn btn-primary btn-sm' %>
+              <%= link_to fa_icon('trash'), local, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div class="pagination justify-content-center">
   <%= paginate @locais, theme: 'twitter-bootstrap-4' %>

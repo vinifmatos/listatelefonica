@@ -15,6 +15,7 @@ class LocaisController < ApplicationController
   # GET /locais/new
   def new
     @local = Local.new
+    @local.build_endereco
   end
 
   # GET /locais/1/edit
@@ -69,6 +70,6 @@ class LocaisController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def local_params
-    params.require(:local).permit(:nome, :telefone)
+    params.require(:local).permit(:nome, :telefone, endereco_attributes: [ :cep, :rua, :bairro, :cidade, :estado ])
   end
 end

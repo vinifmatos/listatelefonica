@@ -12,18 +12,62 @@
   <% end %>
 
   <div class="form-row">
-    <div class="form-group col-auto">
+    <div class="form-group col-lg-3 col-md-6">
       <%= form.label :nome %>
       <%= form.text_field :nome, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="form-group col-auto">
+    <div class="form-group col-lg-2 col-md-3">
       <%= form.label :telefone %>
       <%= form.text_field :telefone, class: 'form-control' %>
     </div>
   </div>
+
+  <h3>Endereço</h3>
+
+  <%= form.fields_for :endereco do |e| %>
+    <div class="form-row">
+      <div class="form-group col-lg-2 col-md-2">
+        <%= e.label :cep %>
+        <%= e.text_field :cep, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-lg-5 col-md-8">
+        <%= e.label :rua %>
+        <%= e.text_field :rua, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-lg-1 col-md-2 col-3">
+        <%= e.label :numero %>
+        <%= e.text_field :numero, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-lg-5 col-md-8">
+        <%= e.label :complemento %>
+        <%= e.text_field :complemento, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-lg-3 col-md-5">
+        <%= e.label :bairro %>
+        <%= e.text_field :bairro, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-lg-3 col-md-5">
+        <%= e.label :cidade %>
+        <%= e.text_field :cidade, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit 'Salvar', class: 'btn btn-success' %>

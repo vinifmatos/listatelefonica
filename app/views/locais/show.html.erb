@@ -26,6 +26,49 @@
           <%= label_tag :telefone %>
           <%= text_field_tag :telefone, @local.telefone, class: 'form-control', readonly: true %>
         </div>
+      </div>
+
+      <h3>Endereço</h3>
+
+      <div class="form-row">
+        <div class="form-group col-lg-2 col-md-2">
+          <%= label_tag :cep %>
+          <%= text_field_tag :cep, @local.endereco.cep, class: 'form-control', readonly: true %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-lg-5 col-md-8">
+          <%= label_tag :rua %>
+          <%= text_field_tag :rua, @local.endereco.rua, class: 'form-control', readonly: true %>
+        </div>
+
+        <div class="form-group col-lg-1 col-md-2 col-3">
+          <%= label_tag :numero %>
+          <%= text_field_tag :numero, @local.endereco.numero, class: 'form-control', readonly: true %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-lg-5 col-md-8">
+          <%= label_tag :complemento %>
+          <%= text_field_tag :complemento, @local.endereco.complemento, class: 'form-control', readonly: true %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-lg-3 col-md-5">
+          <%= label_tag :bairro %>
+          <%= text_field_tag :bairro, @local.endereco.bairro, class: 'form-control', readonly: true %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-lg-3 col-md-5">
+          <%= label_tag :cidade %>
+          <%= text_field_tag :cidade, @local.endereco.cidade, class: 'form-control', readonly: true %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

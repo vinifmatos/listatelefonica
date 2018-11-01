@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_192841) do
     t.string "cep", limit: 8
     t.string "rua", null: false
     t.string "numero"
+    t.string "complemento"
     t.string "bairro", null: false
     t.string "cidade", null: false
     t.datetime "created_at", null: false
