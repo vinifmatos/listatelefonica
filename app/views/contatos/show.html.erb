@@ -31,12 +31,12 @@
       <div class="form-row">
         <div class="form-group col-auto">
           <%= label_tag :telefone %>
-          <%= text_field_tag :telefone, @contato.telefone, class: 'form-control', readonly: true %>
+          <%= text_field_tag :telefone, formata_telefone(@contato.telefone), class: 'form-control telefone-field', readonly: true %>
         </div>
 
         <div class="form-group col-auto">
           <%= label_tag :celular %>
-          <%= text_field_tag :celular, @contato.celular, class: 'form-control', readonly: true %>
+          <%= text_field_tag :celular, formata_celular(@contato.celular), class: 'form-control celular-field', readonly: true %>
         </div>
       </div>
 

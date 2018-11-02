@@ -28,8 +28,8 @@
       <% @contatos.each do |contato| %>
         <tr>
           <td><%= contato.nome %></td>
-          <td><%= contato.telefone %></td>
-          <td><%= contato.celular %></td>
+          <td><%= formata_telefone contato.telefone %></td>
+          <td><%= formata_celular contato.celular %></td>
           <td><%= contato.cargo %></td>
           <td><%= contato.departamento.nome %></td>
           <td style="text-align: center"><%= t contato.ativo %></td>

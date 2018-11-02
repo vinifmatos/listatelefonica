@@ -24,7 +24,7 @@
       <div class="form-row">
         <div class="form-group col-auto">
           <%= label_tag :telefone %>
-          <%= text_field_tag :telefone, @local.telefone, class: 'form-control', readonly: true %>
+          <%= text_field_tag :telefone, formata_telefone(@local.telefone), class: 'form-control telefone-field', readonly: true %>
         </div>
       </div>
 
@@ -33,7 +33,9 @@
       <div class="form-row">
         <div class="form-group col-lg-2 col-md-2">
           <%= label_tag :cep %>
-          <%= text_field_tag :cep, @local.endereco.cep, class: 'form-control', readonly: true %>
+          <div >
+            <%= text_field_tag :cep, @local.endereco.cep, class: 'form-control cep-field', readonly: true %>
+          </div>
         </div>
       </div>
 
