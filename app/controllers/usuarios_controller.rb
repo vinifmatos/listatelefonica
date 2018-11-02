@@ -4,7 +4,6 @@ class UsuariosController < ApplicationController
   before_action :set_acessos, only: [:new, :edit, :create, :update]
 
   # GET /usuarios
-  # GET /usuarios.json
   def index
     @usuarios = Usuario.all.order(:login).page(params[:page])
   end
@@ -15,11 +14,9 @@ class UsuariosController < ApplicationController
   end
 
   # GET /usuarios/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /usuarios
-  # POST /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
 
@@ -33,7 +30,6 @@ class UsuariosController < ApplicationController
   end
 
   # PATCH/PUT /usuarios/1
-  # PATCH/PUT /usuarios/1.json
   def update
     limpa_senha! unless senha_alterada?
     respond_to do |format|
@@ -46,11 +42,25 @@ class UsuariosController < ApplicationController
   end
 
   # DELETE /usuarios/1
-  # DELETE /usuarios/1.json
   def destroy
     @usuario.destroy
     respond_to do |format|
       format.html { redirect_to usuarios_url, flash: { success: 'Usuario was successfully destroyed.' } }
+    end
+  end
+
+  def alterar_senha
+    @usuario = current_usuario
+  end
+
+  def atualizar_senha
+    @usuario = current_usuario
+
+    if @usuario.update_with_password(set_password_params)
+      bypass_sign_in @usuario
+      redirect_to root_path, flash: { success: 'Senha alterada com sucesso.' }
+    else
+      render :alterar_senha
     end
   end
 
@@ -81,5 +91,9 @@ class UsuariosController < ApplicationController
   def limpa_senha!
     params[:usuario].delete(:password)
     params[:usuario].delete(:password_confirmation)
+  end
+
+  def set_password_params
+    params.require(:usuario).permit(:current_password, :password, :password_confirmation)
   end
 end
