@@ -5,7 +5,7 @@ class ContatosController < ApplicationController
   # GET /contatos
   # GET /contatos.json
   def index
-    @contatos = Contato.all.includes(:departamento).page(params[:page])
+    @contatos = Contato.all.order(:nome).includes(:departamento).page(params[:page])
   end
 
   # GET /contatos/1

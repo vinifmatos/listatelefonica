@@ -5,7 +5,7 @@ class DepartamentosController < ApplicationController
   # GET /departamentos
   # GET /departamentos.json
   def index
-    @departamentos = Departamento.all.includes(:local).page(params[:page])
+    @departamentos = Departamento.all.order(:nome).includes(:local).page(params[:page])
   end
 
   # GET /departamentos/1

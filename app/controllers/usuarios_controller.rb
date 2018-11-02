@@ -6,7 +6,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all.page(params[:page])
+    @usuarios = Usuario.all.order(:login).page(params[:page])
   end
 
   # GET /usuarios/new

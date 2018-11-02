@@ -4,7 +4,7 @@ class LocaisController < ApplicationController
   # GET /locais
   # GET /locais.json
   def index
-    @locais = Local.all.page(params[:page])
+    @locais = Local.all.order(:nome).page(params[:page])
   end
 
   # GET /locais/1
