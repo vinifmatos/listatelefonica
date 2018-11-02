@@ -20,4 +20,13 @@ module ApplicationHelper
 
     '!!!'
   end
+
+  def tipo_notificacao
+    {
+      notice: 'info',
+      success: 'success',
+      alert: 'warn',
+      error: 'danger'
+    }
+  end
 end

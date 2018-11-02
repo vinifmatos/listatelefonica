@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
+<div class="container main-container">
   <div class="row">
     <div class="col-auto">
       <h1>Departamentos</h1>
     </div>
     <% if cadastra? %>
       <div class="col-auto ml-auto">
-        <%= link_to 'Novo Departamento', new_departamento_path, class: 'btn btn-primary' %>
+        <%= link_to 'Novo Departamento', new_departamento_path, class: 'btn btn-primary mt-1' %>
       </div>
     <% end %>
   </div>

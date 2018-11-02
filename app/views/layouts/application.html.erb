@@ -12,5 +12,15 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= yield %>
+
+    <script type="text/javascript">
+      <% flash.each do |k, v| %>
+        $(document).ready(function() {
+          $.notify("<%= v %>", "<%= tipo_notificacao[k.to_sym] %>")
+          console.log("<%= k.to_sym %>")
+          console.log("<%= tipo_notificacao[k.to_sym] %>")
+        });
+      <% end %>
+    </script>
   </body>
 </html>

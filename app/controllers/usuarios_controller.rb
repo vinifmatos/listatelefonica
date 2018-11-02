@@ -25,7 +25,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to usuarios_url, notice: 'Usuario was successfully created.' }
+        format.html { redirect_to usuarios_url, flash: { success: 'Usuario was successfully created.' } }
       else
         format.html { render :new }
       end
@@ -38,7 +38,7 @@ class UsuariosController < ApplicationController
     limpa_senha! unless senha_alterada?
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to usuarios_url, notice: 'Usuario was successfully updated.' }
+        format.html { redirect_to usuarios_url, flash: { success: 'Usuario was successfully updated.' } }
       else
         format.html { render :edit }
       end
@@ -50,7 +50,7 @@ class UsuariosController < ApplicationController
   def destroy
     @usuario.destroy
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
+      format.html { redirect_to usuarios_url, flash: { success: 'Usuario was successfully destroyed.' } }
     end
   end
 

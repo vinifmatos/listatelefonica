@@ -29,7 +29,7 @@ class LocaisController < ApplicationController
 
     respond_to do |format|
       if @local.save
-        format.html { redirect_to @local, notice: 'Local was successfully created.' }
+        format.html { redirect_to @local, flash: { success: 'Local was successfully created.' } }
         format.json { render :show, status: :created, location: @local }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class LocaisController < ApplicationController
   def update
     respond_to do |format|
       if @local.update(local_params)
-        format.html { redirect_to @local, notice: 'Local was successfully updated.' }
+        format.html { redirect_to @local, flash: { success: 'Local was successfully updated.' } }
         format.json { render :show, status: :ok, location: @local }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class LocaisController < ApplicationController
   def destroy
     @local.destroy
     respond_to do |format|
-      format.html { redirect_to locais_url, notice: 'Local was successfully destroyed.' }
+      format.html { redirect_to locais_url, flash: { success: 'Local was successfully destroyed.' } }
       format.json { head :no_content }
     end
   end
