@@ -1,3 +1,6 @@
 pt-BR:
   'true': 'Sim'
   'false': 'Não'
+  devise:
+    failure:
+      unauthenticated: "Você precisa estar logado para acessar."
