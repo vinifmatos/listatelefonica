@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @locais.each do |local| %>
+        <tr>
+          <td><%= local.nome %></td>
+          <td><%= formata_telefone local.telefone %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination justify-content-center">
+  <%= paginate @locais, theme: 'twitter-bootstrap-4' %>
+</div>

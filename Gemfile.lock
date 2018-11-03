@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: e1499b8a7a6f8ca95900f2f50f914ae38eb379aa
+  specs:
+    ransack (2.1.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: e0702c02b17a2391580f8a9d300b779bc1f4b846
   branch: master
@@ -291,6 +301,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-assets-notifyjs!
   rails-i18n (~> 5.1)
+  ransack!
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

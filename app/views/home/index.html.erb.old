@@ -1,0 +1,39 @@
+<div class="container main-container">
+  <%= form_tag root_path, method: :get, class: 'form-inline' do %>
+    <%= text_field_tag :numero, nil, placeholder: 'Numero', class: 'form-control mb-2 mr-sm-2' %>
+    <%= text_field_tag :nome, nil, placeholder: 'Nome', class: 'form-control mb-2 mr-sm-2' %>
+    <%= text_field_tag :departamento, nil, placeholder: 'Departamento', class: 'form-control mb-2 mr-sm-2' %>
+    <%= submit_tag 'Buscar', class: 'btn btn-primary mb-2' %>
+  <% end %>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Celular</th>
+        <th>Cargo</th>
+        <th>Departamento</th>
+        <th>Local</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contatos.each do |contato| %>
+        <tr>
+          <td><%= contato.nome %></td>
+          <td><%= formata_telefone contato.telefone %></td>
+          <td><%= formata_celular contato.celular %></td>
+          <td><%= contato.cargo %></td>
+          <td><%= contato.departamento.nome %></td>
+          <td><%= contato.departamento.local.nome %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination justify-content-center">
+  <%= paginate @contatos, theme: 'twitter-bootstrap-4' %>
+</div>

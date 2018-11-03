@@ -96,3 +96,6 @@ gem 'bootstrap4-kaminari-views'
 
 # traducao kaminari
 gem 'kaminari-i18n'
+
+# buscas com ransack
+gem 'ransack', github: 'activerecord-hackery/ransack'

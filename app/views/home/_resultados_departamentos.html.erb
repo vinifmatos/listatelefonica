@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Local</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @departamentos.each do |departamento| %>
+        <tr>
+          <td><%= departamento.nome %></td>
+          <td><%= departamento.local.nome %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination justify-content-center">
+  <%= paginate @departamentos, theme: 'twitter-bootstrap-4' %>
+</div>
