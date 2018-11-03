@@ -1,9 +1,22 @@
+<div class="container">
+  <%= search_form_for @q, class: 'form-inline mt-3 mb-3' do |f| %>
+    <div class="form-group">
+      <%= f.label :nome %>
+      <%= f.search_field :nome_cont, class: 'form-control ml-3 mr-3' %>
+    </div>
+
+    <div id="submit">
+      <%= f.submit 'Buscar', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
       <tr>
         <th><%= sort_link(@q, :nome, 'Nome', default_order: :asc) %></th>
-        <th>Telefone</th>
+        <th><%= sort_link(@q, :telefone, 'Telefone', default_order: :asc) %></th>
       </tr>
     </thead>
     <tbody>

@@ -1,3 +1,21 @@
+<div class="container">
+  <%= search_form_for @q, class: 'form-inline mt-3 mb-3' do |f| %>
+    <div class="form-group">
+      <%= f.label :nome %>
+      <%= f.search_field :nome_cont, class: 'form-control ml-3' %>
+    </div>
+
+    <div class="form-group ml-3 mr-3">
+      <%= f.label 'Local'%>
+      <%= f.search_field :local_nome_cont, class: 'form-control ml-3' %>
+    </div>
+
+    <div id="submit">
+      <%= f.submit 'Buscar', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
