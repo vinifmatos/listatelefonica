@@ -8,8 +8,8 @@
           <h1>Departamento</h1>
         </div>
         <div class="col-auto row ml-auto">
-          <%= button_to 'Editar', edit_departamento_path(@departamento), method: :get, class: 'btn btn-primary col-auto mr-2', disabled: !cadastra? %>
-          <%= button_to 'Voltar', departamentos_path, method: :get, class: 'btn btn-primary col-auto mr-3' %>
+          <%= button_to 'Editar', edit_cadastro_departamento_path(@departamento), method: :get, class: 'btn btn-primary col-auto mr-2', disabled: !cadastra? %>
+          <%= button_to 'Voltar', cadastro_departamentos_path, method: :get, class: 'btn btn-primary col-auto mr-3' %>
         </div>
       </div>
     </div>

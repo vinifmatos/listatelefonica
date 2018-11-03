@@ -1,4 +1,4 @@
-class ContatosController < ApplicationController
+class Cadastro::ContatosController < ApplicationController
   before_action :set_contato, only: [:show, :edit, :update, :destroy]
   before_action :set_departamento, only: [:new, :edit, :create, :update]
 

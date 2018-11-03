@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_usuario!
-  before_action :acesso_cadastro?, only: [:new, :edit, :create, :update, :destroy]
+  before_action :acesso_cadastro?
   helper_method :admin?, :cadastra?
 
   def admin?

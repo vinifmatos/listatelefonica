@@ -1,4 +1,4 @@
-class DepartamentosController < ApplicationController
+class Cadastro::DepartamentosController < ApplicationController
   before_action :set_departamento, only: [:show, :edit, :update, :destroy]
   before_action :set_locais, only: [:new, :edit, :update, :create]
 

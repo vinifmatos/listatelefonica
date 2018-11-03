@@ -8,8 +8,8 @@
           <h1>Contato</h1>
         </div>
         <div class="col-auto row ml-auto">
-          <%= button_to 'Editar', edit_contato_path(@contato), method: :get, class: 'btn btn-primary col-auto mr-2', disabled: !cadastra? %>
-          <%= button_to 'Voltar', contatos_path, method: :get, class: 'btn btn-primary mr-3 col-auto' %>
+          <%= button_to 'Editar', edit_cadastro_contato_path(@contato), method: :get, class: 'btn btn-primary col-auto mr-2', disabled: !cadastra? %>
+          <%= button_to 'Voltar', cadastro_contatos_path, method: :get, class: 'btn btn-primary mr-3 col-auto' %>
         </div>
       </div>
     </div>

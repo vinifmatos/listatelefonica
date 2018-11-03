@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # before_action :set_busca_params, except: :index
+  skip_before_action :acesso_cadastro?
 
   def index
     # @contatos = Contato.busca(@busca_params).page(params[:page])
@@ -10,27 +10,19 @@ class HomeController < ApplicationController
 
   def contatos
     @q = Contato.ransack(params[:q])
-    @contatos = @q.result.ativos.includes(departamento: [:local]).page(params[:page])
+    @contatos = @q.result.ativos.includes(departamento: [:local]).order(:nome).page(params[:page])
     render 'resultados'
   end
 
   def departamentos
     @q = Departamento.ransack(params[:q])
-    @departamentos = @q.result.includes(:local).page(params[:page])
+    @departamentos = @q.result.includes(:local).order(:nome).page(params[:page])
     render 'resultados'
   end
 
   def locais
     @q = Local.ransack(params[:q])
-    @locais = @q.result.page(params[:page])
+    @locais = @q.result.order(:nome).page(params[:page])
     render 'resultados'
-  end
-
-  private
-
-  def set_busca_params
-    @busca_params = params.permit(:nome, :numero)
-    @busca_params[:numero].tr!('(', '').tr!(')', '').tr!(' ', '').tr!('-', '') if @busca_params[:numero].present?
-    @busca_params.each_pair { |k, v| @busca_params[k] = "%#{v}%" unless v.blank? }
   end
 end

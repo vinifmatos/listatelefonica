@@ -1,4 +1,4 @@
-class LocaisController < ApplicationController
+class Cadastro::LocaisController < ApplicationController
   before_action :set_local, only: [:show, :edit, :update, :destroy]
 
   # GET /locais

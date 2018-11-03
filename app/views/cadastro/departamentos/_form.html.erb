@@ -1,4 +1,4 @@
-<%= form_with(model: departamento, local: true) do |form| %>
+<%= form_with(model: [:cadastro, departamento], local: true) do |form| %>
   <% if departamento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(departamento.errors.count, "error") %> prohibited this departamento from being saved:</h2>

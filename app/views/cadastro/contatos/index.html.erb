@@ -5,7 +5,7 @@
     </div>
     <% if cadastra? %>
       <div class="col-auto ml-auto">
-        <%= link_to 'Novo Contato', new_contato_path, class: 'btn btn-primary mt-1' %>
+        <%= link_to 'Novo Contato', new_cadastro_contato_path, class: 'btn btn-primary mt-1' %>
       </div>
     <% end %>
   </div>
@@ -34,11 +34,8 @@
           <td><%= contato.departamento.nome %></td>
           <td style="text-align: center"><%= t contato.ativo %></td>
           <td style="text-align: center">
-            <%= link_to fa_icon('list'), contato, class: 'btn btn-primary btn-sm' %>
-            <% if cadastra? %>
-              <%= link_to fa_icon('pencil'), edit_contato_path(contato), class: 'btn btn-primary btn-sm' %>
-              <%= link_to fa_icon('trash'), contato, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-            <% end %>
+            <%= link_to fa_icon('pencil'), edit_cadastro_contato_path(contato), class: 'btn btn-primary btn-sm' %>
+            <%= link_to fa_icon('trash'), [:cadastro, contato], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
           </td>
         </tr>
       <% end %>
