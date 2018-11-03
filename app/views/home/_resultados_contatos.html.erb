@@ -2,12 +2,12 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Nome</th>
+        <th><%= sort_link(@q, :nome, 'Nome', default_order: :asc) %></th>
         <th>Telefone</th>
         <th>Celular</th>
         <th>Cargo</th>
-        <th>Departamento</th>
-        <th>Local</th>
+        <th><%= sort_link(@q, :departamento, 'Departamento', default_order: :asc) %></th>
+        <th><%= sort_link(@q, :local, 'Local', default_order: :asc) %></th>
       </tr>
     </thead>
     <tbody>
