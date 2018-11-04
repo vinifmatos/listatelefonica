@@ -5,7 +5,8 @@ class Cadastro::ContatosController < ApplicationController
   # GET /contatos
   # GET /contatos.json
   def index
-    @contatos = Contato.all.order(:nome).includes(:departamento).page(params[:page])
+    @q = Contato.ransack(params[:q])
+    @contatos = @q.result.includes(departamento: [:local]).order(:nome).page(params[:page])
   end
 
   # GET /contatos/1

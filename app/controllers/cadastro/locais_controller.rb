@@ -4,7 +4,8 @@ class Cadastro::LocaisController < ApplicationController
   # GET /locais
   # GET /locais.json
   def index
-    @locais = Local.all.order(:nome).page(params[:page])
+    @q = Local.ransack(params[:q])
+    @locais = @q.result.order(:nome).page(params[:page])
   end
 
   # GET /locais/1

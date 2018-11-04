@@ -5,7 +5,8 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios
   def index
-    @usuarios = Usuario.all.order(:login).page(params[:page])
+    @q = Usuario.ransack(params[:q])
+    @usuarios = @q.result.order(:login).page(params[:page])
   end
 
   # GET /usuarios/new

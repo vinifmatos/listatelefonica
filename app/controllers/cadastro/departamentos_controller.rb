@@ -5,7 +5,8 @@ class Cadastro::DepartamentosController < ApplicationController
   # GET /departamentos
   # GET /departamentos.json
   def index
-    @departamentos = Departamento.all.order(:nome).includes(:local).page(params[:page])
+    @q = Departamento.ransack(params[:q])
+    @departamentos = @q.result.includes(:local).order(:nome).page(params[:page])
   end
 
   # GET /departamentos/1
