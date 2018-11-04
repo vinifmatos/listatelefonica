@@ -1,8 +1,13 @@
 <div class="container">
-  <%= search_form_for @q, class: 'form-inline mt-3 mb-3' do |f| %>
+  <%= search_form_for @q, class: 'form-inline mt-3 mb-3', id: 'form-busca-local' do |f| %>
     <div class="form-group">
       <%= f.label :nome %>
       <%= f.search_field :nome_cont, class: 'form-control ml-3 mr-3' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :telefone %>
+      <%= f.search_field :telefone_cont, class: 'form-control ml-3 mr-3', id: 'campo-numero-telefone' %>
     </div>
 
     <div id="submit">

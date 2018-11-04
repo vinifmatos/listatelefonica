@@ -1,5 +1,5 @@
 <div class="container">
-  <%= search_form_for @q, class: 'form-inline mt-3 mb-3' do |f| %>
+  <%= search_form_for @q, class: 'form-inline mt-3 mb-3', id: 'form-busca-contato' do |f| %>
     <div class="form-group">
       <%= f.label :nome %>
       <%= f.search_field :nome_cont, class: 'form-control ml-3' %>
@@ -7,7 +7,7 @@
 
     <div class="form-group ml-3">
       <%= f.label :numero %>
-      <%= f.search_field :telefone_or_celular_cont, class: 'form-control ml-3' %>
+      <%= f.search_field :telefone_or_celular_cont, class: 'form-control ml-3', id: 'campo-numero-telefone-celular' %>
     </div>
 
     <div class="form-group ml-3 mr-3">

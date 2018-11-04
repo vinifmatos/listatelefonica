@@ -4,7 +4,7 @@
       <div class="card-body">
         <h5 class="card-title">Contatos</h5>
 
-        <%= search_form_for @contatoq, url: busca_contatos_path do |f| %>
+        <%= search_form_for @contatoq, url: busca_contatos_path, id: 'form-busca-contato' do |f| %>
           <div class="form-group">
             <%= f.label :nome %>
             <%= f.search_field :nome_cont, class: 'form-control' %>
@@ -12,7 +12,7 @@
 
           <div class="form-group">
             <%= f.label :numero %>
-            <%= f.search_field :telefone_or_celular_cont, class: 'form-control' %>
+            <%= f.search_field :telefone_or_celular_cont, class: 'form-control', id: 'campo-numero-telefone-celular' %>
           </div>
 
           <div id="submit">
@@ -49,7 +49,7 @@
       <div class="card-body">
         <h5 class="card-title">Locais</h5>
 
-        <%= search_form_for @localq, url: locais_path do |f| %>
+        <%= search_form_for @localq, url: locais_path, id: 'form-busca-local' do |f| %>
           <div class="form-group">
             <%= f.label :nome %>
             <%= f.search_field :nome_cont, class: 'form-control' %>
@@ -57,7 +57,7 @@
 
           <div class="form-group">
             <%= f.label :telefone %>
-            <%= f.search_field :telefone_cont, class: 'form-control' %>
+            <%= f.search_field :telefone_cont, class: 'form-control', id: 'campo-numero-telefone' %>
           </div>
 
           <div id="submit">
