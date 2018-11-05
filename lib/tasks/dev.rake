@@ -41,10 +41,8 @@ namespace :dev do
       20.times do
         d.contatos.create(
           nome: Faker::Name.name,
-          telefone: Faker::PhoneNumber.phone_number.tr('(', '').tr(')', '')
-          .tr(' ', '').tr('-', ''),
-          celular: Faker::PhoneNumber.cell_phone.tr('(', '').tr(')', '')
-          .tr(' ', '').tr('-', ''),
+          telefone: Faker::PhoneNumber.phone_number,
+          celular: Faker::PhoneNumber.cell_phone,
           cargo: Faker::Company.profession
         )
       end
