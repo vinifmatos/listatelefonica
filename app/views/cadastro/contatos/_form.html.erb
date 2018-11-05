@@ -1,14 +1,15 @@
 <%= form_with(model: [:cadastro, contato], local: true) do |form| %>
   <% if contato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(contato.errors.count, "error") %> prohibited this contato from being saved:</h2>
-
-      <ul>
-      <% contato.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <% contato.errors.messages.each do |k, v| %>
+        <script type="text/javascript">
+          $(document).on("turbolinks:load", function() {
+            $(document).ready(function() {
+              $("#contato_<%= k.to_s %>").notify("<%= "#{k.to_s.capitalize} #{v[0]}" %>", "error");
+              Turbolinks.clearCache();
+            });
+          });
+        </script>
       <% end %>
-      </ul>
-    </div>
   <% end %>
 
   <div class="form-row align-items-center">
@@ -53,6 +54,6 @@
 
   <div class="actions">
     <%= form.submit 'Salvar', class: 'btn btn-success' %>
-    <%= link_to 'Voltar', :back, class: 'btn btn-primary' %>
+    <%= link_to 'Voltar', cadastro_contatos_path, class: 'btn btn-primary' %>
   </div>
 <% end %>
