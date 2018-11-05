@@ -1,16 +1,4 @@
 <%= form_with(model: [:cadastro, departamento], local: true) do |form| %>
-  <% if departamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(departamento.errors.count, "error") %> prohibited this departamento from being saved:</h2>
-
-      <ul>
-      <% departamento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-row">
     <div class="form-group col-auto">
       <%= form.label :nome %>
@@ -30,3 +18,5 @@
     <%= link_to 'Voltar', cadastro_departamentos_path, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%= model_erros_to_js_array departamento %>

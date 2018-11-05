@@ -1,16 +1,4 @@
 <%= form_with(model: usuario, local: true) do |form| %>
-  <% if usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
-
-      <ul>
-      <% usuario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-row">
     <div class="form-group col-auto">
       <%= form.label :login %>
@@ -46,6 +34,8 @@
 
   <div class="actions">
     <%= form.submit 'Salvar', class: 'btn btn-success' %>
-    <%= link_to 'Voltar', :back, class: 'btn btn-primary' %>
+    <%= link_to 'Voltar', usuarios_path, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%= model_erros_to_js_array usuario %>

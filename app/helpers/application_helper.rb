@@ -33,4 +33,20 @@ module ApplicationHelper
       error: 'danger'
     }
   end
+
+  def model_erros_to_js_array(model)
+    e = model.errors.messages.map { |k, v| { campo: k, msg: v[0] } }.to_json.html_safe
+    javascript_tag "
+    var erros = #{e};
+      $(document).on('turbolinks:load', function() {
+        $(document).ready(function() {
+          if (erros.length > 0) {
+            for (var e of erros) {
+              $('##{model.model_name.singular}_' + e.campo).notify(e.msg, 'error');
+            }
+          }
+        });
+      });
+  "
+  end
 end

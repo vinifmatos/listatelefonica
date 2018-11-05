@@ -1,17 +1,4 @@
 <%= form_with(model: [:cadastro, contato], local: true) do |form| %>
-  <% if contato.errors.any? %>
-    <% contato.errors.messages.each do |k, v| %>
-        <script type="text/javascript">
-          $(document).on("turbolinks:load", function() {
-            $(document).ready(function() {
-              $("#contato_<%= k.to_s %>").notify("<%= "#{k.to_s.capitalize} #{v[0]}" %>", "error");
-              Turbolinks.clearCache();
-            });
-          });
-        </script>
-      <% end %>
-  <% end %>
-
   <div class="form-row align-items-center">
     <div class="form-group col-auto">
       <%= form.label :nome %>
@@ -57,3 +44,5 @@
     <%= link_to 'Voltar', cadastro_contatos_path, class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%= model_erros_to_js_array contato %>
