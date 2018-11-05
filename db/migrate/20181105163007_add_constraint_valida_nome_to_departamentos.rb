@@ -1,4 +1,4 @@
-class AddConstraintValidaNomeToDepartamento < ActiveRecord::Migration[5.2]
+class AddConstraintValidaNomeToDepartamentos < ActiveRecord::Migration[5.2]
   def up
     execute <<-SQL
       ALTER TABLE departamentos

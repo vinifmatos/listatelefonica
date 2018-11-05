@@ -1,4 +1,4 @@
-class AddConstraintValidaLoginToUsuario < ActiveRecord::Migration[5.2]
+class AddConstraintValidaLoginToUsuarios < ActiveRecord::Migration[5.2]
   def up
     execute <<-SQL
       ALTER TABLE usuarios
