@@ -23,8 +23,8 @@
 
       <div class="form-row">
         <div class="form-group col-auto">
-          <%= label_tag :nome %>
-          <%= text_field_tag :nome, formata_telefone @departamento.telefone, class: 'form-control', readonly: true %>
+          <%= label_tag :telefone %>
+          <%= text_field_tag :telefone, formata_telefone(@departamento.telefone), class: 'form-control', readonly: true %>
         </div>
       </div>
 
