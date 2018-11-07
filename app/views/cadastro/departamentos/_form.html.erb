@@ -8,6 +8,13 @@
 
   <div class="form-row">
     <div class="form-group col-auto">
+      <%= form.label :telefone %>
+      <%= form.text_field :telefone, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-auto">
       <%= form.label :local %>
       <%= form.select :local_id, locais.collect { |l| [ l.nome, l.id ] }, { prompt: 'Selecione' }, class: 'form-control' %>
     </div>

@@ -8,12 +8,17 @@
   <div class="row">
     <div class="col-auto mr-auto">
       <%= search_form_for @q, class: 'form-inline mb-3' do |f| %>
-        <div class="form-group">
+        <div class="form-group mr-3">
           <%= f.label :nome %>
           <%= f.search_field :nome_cont, class: 'form-control ml-3' %>
         </div>
 
-        <div class="form-group ml-3 mr-3">
+        <div class="form-group mr-3">
+          <%= f.label :telefone %>
+          <%= f.search_field :telefone_cont, class: 'form-control ml-3' %>
+        </div>
+
+        <div class="form-group mr-3">
           <%= f.label 'Local'%>
           <%= f.search_field :local_nome_cont, class: 'form-control ml-3' %>
         </div>
@@ -37,6 +42,7 @@
     <thead>
       <tr>
         <th><%= sort_link(@q, :nome, 'Nome', default_order: :asc) %></th>
+        <th><%= sort_link(@q, :telefone, 'Telefone', default_order: :asc) %></th>
         <th><%= sort_link(@q, :local_nome, 'Local', default_order: :asc) %></th>
         <th style="text-align: center">Ações</th>
       </tr>
@@ -45,6 +51,7 @@
       <% @departamentos.each do |departamento| %>
         <tr>
           <td><%= departamento.nome %></td>
+          <td><%= formata_telefone departamento.telefone %></td>
           <td><%= departamento.local.nome %></td>
           <td style="text-align: center">
             <%= link_to fa_icon('list'), [:cadastro, departamento], class: 'btn btn-primary btn-sm' %>
